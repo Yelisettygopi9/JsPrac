@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!--event bubbling and event capturing-->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        section {
+
+            width: 300px;
+            height: 300px;
+            border: 2px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        section>article {
+            width: 200px;
+            height: 200px;
+            border: 2px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        section>article>div {
+            width: 100px;
+            height: 100px;
+            border: 2px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <article>
+            <div>
+
+            </div>
+        </article>
+    </section>
+
+    <script>
+        let section = document.querySelector("section")
+        let art = document.querySelector("article")
+        let div = document.querySelector("div")
+        section.addEventListener("click", () => {
+            console.log("section");
+            section.style.background = "red";
+            event.stopPropagation()
+        })
+        art.addEventListener("click", () => {
+            console.log("article");
+            art.style.background = "green";
+            event.stopPropagation()
+        })
+        div.addEventListener("click", () => {
+            console.log("div");
+            div.style.background = "blue";
+            event.stopPropagation()
+        })
+    </script>
+
+</body>
+
+</html>

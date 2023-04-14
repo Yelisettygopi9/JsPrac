@@ -1,0 +1,9 @@
+                JAVA SCRIPT
+                ------------
+1.What is JavaScript?Why JavaScript?
+-->JavaScript is a Scripting language.
+-->JavaScript is a programming language.
+-->JavaScript is a interpreted language.
+-->JavaScript is a synchronized language.
+-->JavaScript is a Dynamically typed language.
+----------------------------------------------------------

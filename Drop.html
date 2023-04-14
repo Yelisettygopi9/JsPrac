@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--until typin menu button list should be hidden-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./Drop.css">
+</head>
+
+<body>
+    <button onclick="food()" ondblclick="nofood()">
+        Menu
+    </button>
+    <ol>
+        <li>Biriyani</li>
+        <li>MoMo</li>
+        <li>Kabab</li>
+        <li>Tanduri</li>
+        <li>Grilled Chicken</li>
+    </ol>
+    <script>
+        let menu = document.querySelector("ol")
+        let btn = document.querySelector("button")
+        let list = document.querySelector("li")
+
+        let listarr = Array.from(list)
+
+        listarr.forEach((x) => {
+            x.addEventListener("mouseover", () => {
+                x.style.background = "black"
+                x.style.color = "white"
+            })
+            x.addEventListener("mouseout", () => {
+                x.style.background = "grey"
+                x.style.color = "black"
+            })
+
+        })
+        function food() {
+            menu.style.display = "block"
+        }
+        function nofood() {
+            menu.style.display = "none"
+        }
+    </script>
+</body>
+
+</html>

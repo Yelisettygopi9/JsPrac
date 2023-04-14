@@ -1,0 +1,373 @@
+DOM methods or DOM selectors
+    these methods or selectors are used to html elements in DOM
+    there are 5 types of methods:
+    1:document.getElementById()
+    2:document.getElementsByClassName()
+    3:document.getElementsByTagName()
+    4:document.QuerySelector()
+    5:documnet.QuerySelectorAll()
+1:document.getElementById():
+---------------------------
+-->it is a method where we used to target the elements which has id 
+-->it returns one single element 
+eg:
+--          index.html
+        <section>
+            <div>Div1</div>
+            <div id="x">Div2</div>
+            <div class="y">Div3</div>
+        </section>
+-------------------------------------------------
+                fun.js
+        let heading1=document.getElementById("x")
+        console.log(heading1)  //it will print div element which has id x
+        heading1.style.background="red" //it will adding background color red to that element
+==================================================================================================
+2:document.getElementsByClassName():
+---------------------------
+-->it is a method where we used to target the elements which has "class" 
+-->it returns HTML collection
+-->we have to target elements using index values
+eg:
+--          index.html
+        <section>
+            <div>Div1</div>
+            <div class="y">Div2</div>
+            <div class="y">Div3</div>
+        </section>
+-------------------------------------------------
+                fun.js
+        let values=document.getElementsByClassName("y")
+        console.log(values)  // HTML collection[div.y,div.y] 
+        values[0].style.background="red"
+        values[1].style.background="red"
+====================================================================
+3:document.getElementsByTagName():
+---------------------------
+-->it is a method where we used to target the elements which has "tagname" 
+   which we provide as an arguments
+-->it returns HTML collection
+-->we have to target elements using index values
+eg:
+--          index.html
+        <section>
+            <div>Div1</div>
+            <div>Div2</div>
+            <div>Div3</div>
+        </section>
+-------------------------------------------------
+                fun.js
+        let values=document.getElementsByTagName("div")
+        console.log(values)  // HTML collection[div,div,div]
+        values[0].style.background="red"
+        values[1].style.background="red"
+====================================================================
+4:document.QuerySelector()
+-->it is a method which we use it for targeting by tagname,classname,id
+-->it always returns the first element match 
+-->it return only one element
+eg:
+--          index.html
+        <section>
+            <div>Div1</div>
+            <div id="x">Div2</div>
+            <div class="y">Div3</div>
+            <div class="y">Div4</div>
+        </section>
+-------------------------------------------------
+                fun.js 
+        let a =document.QuerySelector("div")
+        let b=document.QuerySelector("#x")
+        let c=document.QuerySelector(".y")
+        console.log(a) //<div>Div1</div>
+        console.log(b) //<div id="x">Div2</div>
+        console.log(c) //<div class="y">Div3</div>
+        
+====================================================================
+5:document.QuerySelectorAll()
+-->it is a method which we use it for targeting by tagname,classname,id
+-->it always returns nodelist 
+-->nodelist is an impure array where it still supports forEach() for iteration
+-->other than forEach methodwe can not apply any other array methods like map,pop,push etc.
+eg:
+--          index.html
+        <section>
+            <div>Div1</div>
+            <div id="x">Div2</div>
+            <div class="y">Div3</div>
+            <div class="y">Div4</div>
+        </section>
+-------------------------------------------------
+                fun.js 
+        let a =document.QuerySelectorAll("div")
+        let b=document.QuerySelectorAll("#x")
+        let c=document.QuerySelectorAll(".y")
+        console.log(a) //nodelist[div,div,div,div]
+        console.log(b) //nodelist[div.#x]
+        console.log(c) //nodelist[div.y,div.y]
+====================================================================
+
+                DOM EVENTS
+                ----------
+1.onclick():
+-->it is an event in DOM whenever we wanted to perform some specific task after 
+   clicking on particular element.
+-->target the element which you wanted click and then use an attribute onclick and
+   assign a function call to it.
+eg
+--              index.html
+        <body>
+             <h1 onclick()="a()">Click</h1>
+        </body>
+                fun.js
+        
+        function a(){
+                console.log("h1 element is clicked")
+        }
+
+eg2:
+--              write a program to create dark and light theme using onclick()?
+        index.html
+        ----------
+        <!-- 1.onclick -->
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+                <meta charset="UTF-8">
+                <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Document</title>
+        </head>
+        <body>
+                Dark <input type="radio" name="a" onclick="dark()">
+                Light<input type="radio" name="a" onclick="light()">
+                <h1>LIGHT AND DARK THEMES</h1>
+                <script src="./theme.js"></script>
+        </body>
+        </html>
+                          fun.js
+                          ------
+        function dark() {
+                document.body.style.background = "black"
+                document.body.style.color = "white"
+        }
+        function light() {
+                document.body.style.background = "cyan"
+                document.body.style.color = "Black"
+        }
+====================================================================
+2:onmouseover()
+---------------
+-->it is an event where we wanted to perform task only after when cursor
+   moves on that particular element
+eg:
+--
+        index.html
+        ----------
+        <h1 onmouseover="a()" >HOVER ON ME </h1>
+        fun.js
+        ------
+        function a(){
+                document.body.style.background="red"
+        }
+=====================================================================================
+3:onmouseout()
+---------------
+-->it is an event where we wanted to perform task only after when cursor
+   moves out on that particular element
+eg:
+--
+        index.html
+        ----------
+        <h1 onmouseover="a()"  onmouseout="b()">HOVER ON ME </h1>
+        fun.js
+        ------
+        function a(){
+                document.body.style.background="red"
+        }
+        function b(){
+                document.body.style.background="white"
+        }
+==============================================================================
+                calculator.html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <link rel="stylesheet" href="calculator.css">
+    <section>
+        <article>
+            <input type="text" id="input">
+            <br>
+            <button class="btn" onclick="click1(1)">1</button>
+            <button class="btn" onclick="click1(2)">2</button>
+            <button class="btn" onclick="click1(3)">3</button>
+            <button class="btn" onclick="click1('+')">+</button>
+            <br>
+            <button class="btn" onclick="click1(4)">4</button>
+            <button class="btn" onclick="click1(5)">5</button>
+            <button class="btn" onclick="click1(6)">6</button>
+            <button class="btn" onclick="click1('-')">-</button>
+            <br>
+            <button class="btn" onclick="click1(7)">7</button>
+            <button class="btn" onclick="click1(8)">8</button>
+            <button class="btn" onclick="click1(9)">9</button>
+            <button class="btn" onclick="click1('*')">*</button>
+            <br>
+            <button class="btn" onclick="click1(0)">0</button>
+            <button class="btn" onclick="erase()">c</button>
+            <button class="btn" onclick="equal()">=</button>
+            <button class="btn" onclick="click1('/')">/</button>
+
+        </article>
+    </section>
+    <script src="./calculator.js"></script>
+</body>
+
+</html>
+                        calculator.css
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+section {
+    height: 100vh;
+    width: 100%;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section>article {
+    height: 300px;
+    width: 300px;
+    background-color: azure;
+    border-radius: 5px;
+    box-shadow: 0px 0px 20px white;
+}
+
+section>article>#input {
+    width: 100%;
+    height: 40px;
+}
+
+section>article>.btn {
+    height: 60px;
+    width: 20%;
+    margin-left: 10px;
+    border: none;
+    margin-top: 2px;
+    background-color: antiquewhite;
+}
+
+section>article>.btn:hover {
+    box-shadow: 0px 0px 10px black;
+    cursor: pointer;
+}
+
+                        calculator.js 
+let userinput = document.getElementById("input")
+let expression = ""
+
+
+function click1(x) {
+    expression = expression + x
+    userinput.value = expression
+}
+function equal() {
+    expression = eval(expression)
+    userinput.value = expression
+}
+function erase() {
+    expression = ""
+    userinput.value = expression
+}
+
+===================================================================
+4.ondbclick():
+-->it is an event in DOM whenever we wanted to perform some specific task after 
+   double clicking on particular element.
+-->target the element which you wanted double click and then use an attribute "ondbclick" and
+   assign a function call to it.
+
+                index.html
+        <body>
+                <h1 onclick="a()" ondbclick="b()" > click </h1>
+        </body>
+
+                fun.js
+        function a(){
+                console.log("h1 element is clicked")
+        }
+        function b(){
+                console.log("h1 element is double clicked")
+        }
+==============================================================================================================
+5.onkeydown():
+--------------
+-->it is a keyboard event which is used to perform some tasks whenever the keys are pressed
+
+eg:
+--
+                index.html
+        <input type="text" onkeydown="c()">
+                
+                fun.js
+        function c(){
+                console.log("the key is pressed or not released)
+        }
+
+===========================================================================
+6.onkeyup():
+-----------
+-->-->it is a keyboard event which is used to perform some tasks whenever the keys are released
+eg:
+--
+                index.html
+        <input type="text" onkeydown="c()"  onkeyup="d()>
+
+                        fun.js
+        function c(){
+                console.log("the key is pressed or not released")
+        }
+        function d(){
+                console.log("the key is released" )
+        }
+
+================================================================================================================
+7.onchange():
+------------
+-->it is an event which is used whenever some changes happens in some element 
+   the instrucions we gave will be executed.
+
+eg:
+---             index.html
+        <select id="colors" onchange="c()">
+             <option value="Red">Red</option>
+             <option value="Blue">Blue</option>
+             <option value="Green">Green</option>
+        </select>
+
+                  fun.js
+        function c() {
+           let colorName = document.getElementById("colors").value
+           console.log(colorName);
+           document.body.style.background = colorName
+
+        }
+==================================================================================================================
+ event bubbling:
+ --------------
+
+
+
